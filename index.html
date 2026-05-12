@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Genesis | البوابة السيادية</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        /* الألوان الأساسية */
+        :root {
+            --space-black: #050509;
+            --physics-green: #00FF88;
+            --sovereign-blue: #00D2FF;
+            --metallic-gray: #64748B;
+            --pure-white: #FFFFFF;
+        }
+
+        /* الإعدادات العامة والتصميم الفضائي/المعملي الصارم */
+        body, html {
+            margin: 0;
+            padding: 0;
+            background-color: var(--space-black);
+            color: var(--pure-white);
+            font-family: 'IBM Plex Sans Arabic', sans-serif;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* خلفية الشبكة المعملية */
+        .grid-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: 
+                linear-gradient(rgba(100, 116, 139, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(100, 116, 139, 0.05) 1px, transparent 1px);
+            background-size: 30px 30px;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* نصوص الكود والمعادلات */
+        .mono-text {
+            font-family: 'Share Tech Mono', monospace;
+            direction: ltr;
+            display: inline-block;
+        }
+
+        /* القسم الأول: الترحيب */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            letter-spacing: 10px;
+            margin-bottom: 10px;
+            font-weight: 300;
+            text-transform: uppercase;
+            font-family: 'Share Tech Mono', monospace;
+        }
+
+        .hero h2 {
+            font-size: 1.2rem;
+            color: var(--metallic-gray);
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 40px;
+        }
+
+        .equation {
+            font-size: 1.5rem;
+            color: var(--physics-green);
+            background: rgba(0, 255, 136, 0.05);
+            padding: 15px 30px;
+            border-radius: 4px;
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            margin-bottom: 40px;
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.1);
+        }
+
+        .hero p {
+            max-width: 600px;
+            line-height: 1.8;
+            color: var(--metallic-gray);
+            font-size: 1.1rem;
+        }
+
+        /* القسم الثاني: الأطروحة */
+        .thesis {
+            padding: 100px 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .thesis-card {
+            flex: 1;
+            min-width: 300px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(100, 116, 139, 0.2);
+            padding: 40px;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .thesis-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--sovereign-blue);
+        }
+
+        .thesis-card h3 {
+            color: var(--pure-white);
+            font-size: 1.3rem;
+            margin-top: 0;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .thesis-card p {
+            color: var(--metallic-gray);
+            line-height: 1.7;
+        }
+
+        /* القسم الثالث: البوابة / سطر الأوامر */
+        .gateway {
+            padding: 100px 20px 150px;
+            text-align: center;
+        }
+
+        .terminal-box {
+            max-width: 500px;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--metallic-gray);
+            padding: 30px;
+            border-radius: 4px;
+        }
+
+        .terminal-label {
+            display: block;
+            margin-bottom: 20px;
+            color: var(--metallic-gray);
+            font-size: 0.9rem;
+        }
+
+        .terminal-input {
+            width: 80%;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid var(--physics-green);
+            color: var(--physics-green);
+            font-size: 1.2rem;
+            padding: 10px;
+            text-align: center;
+            outline: none;
+            margin-bottom: 30px;
+        }
+
+        .terminal-input::placeholder {
+            color: rgba(0, 255, 136, 0.3);
+        }
+
+        .terminal-btn {
+            background: transparent;
+            color: var(--physics-green);
+            border: 1px solid var(--physics-green);
+            padding: 12px 40px;
+            font-size: 1rem;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .terminal-btn:hover {
+            background: var(--physics-green);
+            color: var(--space-black);
+            box-shadow: 0 0 15px rgba(0, 255, 136, 0.5);
+        }
+
+        /* التذييل */
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: rgba(100, 116, 139, 0.5);
+            font-size: 0.8rem;
+            border-top: 1px solid rgba(100, 116, 139, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="grid-background"></div>
+
+    <section class="hero">
+        <h1 class="mono-text">PROJECT GENESIS</h1>
+        <h2 class="mono-text">Beyond Stochastic Biology</h2>
+        
+        <div class="equation mono-text">
+            &Delta;G &lt; 0 &rArr; Valid Structure
+        </div>
+        
+        <p>البيولوجيا ليست نصوصاً احتمالية لتتخيلها النماذج اللغوية، بل هي آلات جزيئية تحكمها الفيزياء. لقد قمنا بحل معضلة التأريض الفيزيائي في الذكاء الاصطناعي التوليدي.</p>
+    </section>
+
+    <section class="thesis">
+        <div class="thesis-card">
+            <h3><span style="color: var(--physics-green);">[</span> التحجيم الفيزيائي <span style="color: var(--physics-green);">]</span></h3>
+            <p>النماذج التقليدية تهلوس ببنى بروتينية مستحيلة. نظامنا يفرض قوانين الديناميكا الحرارية في الوقت الفعلي لضمان استقرار الطي الجزيئي قبل إهدار أي موارد معملية.</p>
+        </div>
+        
+        <div class="thesis-card">
+            <h3><span style="color: var(--sovereign-blue);">[</span> السيادة المعرفية <span style="color: var(--sovereign-blue);">]</span></h3>
+            <p>بياناتك المختبرية ملكك وحدك. عبر معمارية المعرفة الصفرية (Zero-Knowledge)، نقوم باستنتاج الحلول على بياناتك دون رؤيتها أو تخزينها في خوادمنا.</p>
+        </div>
+    </section>
+
+    <section class="gateway">
+        <div class="terminal-box">
+            <span class="terminal-label mono-text">System Awaiting Authorization...</span>
+            <input type="text" class="terminal-input mono-text" placeholder="Enter PGP Key / Invite Code" autocomplete="off">
+            <br>
+            <button class="terminal-btn mono-text">[ Verify Access ]</button>
+        </div>
+    </section>
+
+    <footer>
+        <span class="mono-text">Restricted Access. Level 50 KOLs Only. Genesis Protocol &copy; 2026</span>
+    </footer>
+
+</body>
+</html>
